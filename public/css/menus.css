@@ -1,0 +1,214 @@
+.logo{
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
+
+#welcomeMessage
+{
+    text-align: center;
+    color: white;
+}
+
+
+#menu{
+width: 60%;
+height:auto;
+
+    }
+    #menuimg{
+        max-width: 24%;
+        max-height: 10%;
+        display:inline-block;   
+        }
+
+
+#herosection{
+    background-image: url("../images/herosection.jpg");
+    text-align: center;
+    align-content: center;
+    padding-top: 25%;
+    padding-bottom: 5%;
+    color: white;
+    
+margin:auto;
+width: 75%;
+height: 50%;
+}
+
+#header{
+width: 100%;
+height:auto;
+padding-right: 10%;
+}
+
+.loginfield{
+width:400px;
+height:auto;
+text-align: center;
+background-image: url("../images/backgroundform.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+}
+
+#logging
+{
+    
+    width: 80%;
+    height:10%; 
+}
+
+#password
+{
+width: 90%;
+height:15%;
+}
+
+#email
+{
+    width: 90%;
+    height:15%;
+}
+
+#label1
+{
+padding-right: 66%;
+font-weight: bold;
+}
+
+#label2
+{
+    padding-right: 74%;
+    font-weight: bold;
+    }
+
+    #label3
+    {
+        padding-left: 60%;
+        
+        }
+
+#loginbuttondiv
+{
+
+padding-right: 70%;
+}
+
+#loginbutton
+{
+    background-color: rgb(184, 237, 100);
+    font-size: 14pt;
+}
+
+#first
+{
+padding-right: 72%;
+font-weight: bold;
+}
+
+#second
+{
+    padding-right: 72%;
+    font-weight: bold;
+}
+
+ #third
+ {
+     padding-right: 66%;
+    font-weight: bold;
+ }
+
+#fourth
+{
+    padding-right: 74%;
+    font-weight: bold;
+}
+
+#fifth
+{
+    padding-right: 58%;
+    font-weight: bold;
+}
+
+#maintitle
+{
+font-weight: bold;
+font-size: 22pt;
+padding-left: 3%;
+}
+
+#left
+{
+
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/txtbg.jpg");
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+    padding-top: 25%;
+    padding-bottom: 5%;
+    color: white;
+    font-size: 18pt;
+width: 40%;
+height:auto;
+padding-left: 1%;
+float: left;
+}
+
+#right
+{
+    width: 50%;
+    height:auto;
+    padding-left: 5%;
+    float: left;
+
+}
+
+#rightimg
+{
+    width: 90%;
+    height: auto;
+    float: right;
+padding-left: 3%;
+}
+#footer
+{
+    color: BLACK;
+    width: 100%;
+    height: 200px;
+    clear: both;
+    }
+
+#items
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    transition: 0.3s;
+    padding: 2px 16px;
+    display: inline-grid;
+    justify-content: space-around;
+    clear: both;
+    color:black;
+}
+
+.row:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#arrayitems
+{
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+#toppack
+{
+    text-align: center;
+    position: relative;
+    top: -400px;
+    right: -200px;
+}

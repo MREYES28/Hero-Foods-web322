@@ -1,0 +1,47 @@
+
+<div style="background-image: url('images/bannerbackground.jpg');">
+
+<h2 class= logo><img src="images/herofoodbanner.png"></h2>
+
+    <div id= menu>
+            <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
+            <a href="/login"> <img src="images/buttonlogin.jpg" id= "menuimg"></a>
+            <a href="/registration"> <img src="images/buttonregister.jpg" id= "menuimg"></a>
+            <a href="/MealPkg"> <img src="images/buttonmeal.jpg" id= "menuimg"></a>
+        </div>
+
+</div>
+</br>
+<body><a name="top"></a>
+<fieldset class= "loginfield">
+            </br> </br>
+            <id= "logging"></a>
+            <legend>Login:</legend>
+            <form action="/login" method="POST">
+            
+            <label for="email" id="label1">Email Address:</label></br>
+            <input type="text" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/></br></br>
+            {{#each  errorMessages}}
+              <div class="error1">{{this}}</div>
+            {{/each}}
+
+            <label for="password" id="label2">Password:</label></br>
+            <input type="password" id="password" name="password"></br>
+                        {{#each  errorMessages}}
+              <div class="error2">{{this}}</div>
+            {{/each}}
+                         <a class= "recovery" href="/recover" id="label3">Forgot your password?</a> </br></br>
+            <div  id="loginbuttondiv">
+            <button id="loginbutton">Log IN</button></div>
+            </br></br></br></br></br></br></br>
+            </form>
+            </legend>
+            </fieldset>
+</br></br></br></br></br></br>
+<a href="#top">Back to top of page</a>
+</footer>
+</div>
+
+</body>
+
+</body> 

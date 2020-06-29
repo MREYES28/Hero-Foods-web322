@@ -1,0 +1,61 @@
+
+<div style="background-image: url('images/bannerbackground.jpg');">
+
+<h2 class= logo><img src="images/herofoodbanner.png"></h2>
+
+    <div id= menu>
+            <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
+            <a href="/login"> <img src="images/buttonlogin.jpg" id= "menuimg"></a>
+            <a href="/registration"> <img src="images/buttonregister.jpg" id= "menuimg"></a>
+            <a href="/MealPkg"> <img src="images/buttonmeal.jpg" id= "menuimg"></a>
+        </div>
+        </div>
+          </br>
+<body><a name="top"></a>
+
+ <fieldset class= "loginfield"> 
+            <legend>Create your account:</legend>
+            </br>
+            </br> </br>
+             <id= "logging"></a>
+            <form action="/sign" method="POST">
+            <label for="firstname" id="first">First Name:</label></br>
+            <input type="text"  id="email" name="firstname"/></br></br>
+            {{#each  errorMessages}}
+              <div class="error1">{{this}}</div>
+            {{/each}}
+
+            <label for="lastname" id="second">Last Name:</label></br>
+            <input type="text"  id="email" name="lastname" /></br></br>
+             {{#each  errorMessages}}
+              <div class="error2">{{this}}</div>
+            {{/each}}
+
+            <label for="email" id="third">Email Address:</label></br>
+            <input type="text" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" /></br></br>
+            {{#each  errorMessages}}
+              <div class="error3">{{this}}</div>
+            {{/each}}
+
+            <label for="password" id="fourth">Password:</label> 
+            <input type="password" id="password" name="password" ></br></br>
+             {{#each  errorMessages}}
+              <div class="error4">{{this}}</div>
+            {{/each}}
+
+           <div  id="loginbuttondiv">
+            <button id="loginbutton">Sign UP</button>
+            </div>
+             </br> </br> </br> </br> </br>
+            </form>
+            </legend>
+            </fieldset>
+ </br> </br> </br> </br></br> </br>
+
+<footer >
+<a href="#top">Back to top of page</a>
+</footer>
+</div>
+</body>
+
+</body>
