@@ -21,6 +21,11 @@ router.get('/recover', (req, res) =>{
     res.render('recover');
 });
 
+router.get('/redirectconfirm', (req, res) =>{
+    res.render('redirectconfirm');
+});
+
+
 router.post('/sign', (req,res) => {
 
     const { firstname, lastname, email, password } = req.body
@@ -40,7 +45,7 @@ router.post('/sign', (req,res) => {
     //Asynchronous operation
     sgMail.send(msg)
     .then(()=> {
-        res.redirect("/");
+        res.redirect("/redirectconfirm");
     })
     
     .catch(err => {

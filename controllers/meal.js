@@ -17,4 +17,8 @@ router.get('/login', (req, res) =>{
     res.render('login');
 });
 
+router.get('/redirectconfirm', (req, res) =>{
+    res.render('redirectconfirm');
+});
+
 module.exports = router;

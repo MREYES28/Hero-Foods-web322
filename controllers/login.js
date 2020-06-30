@@ -21,4 +21,8 @@ router.get('/recover', (req, res) =>{
     res.render('recover');
 });
 
+router.get('/redirectconfirm', (req, res) =>{
+    res.render('redirectconfirm');
+});
+
 module.exports = router;
