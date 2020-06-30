@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
 const path = require("path");
-const PORT = process.env.PORT || 8080;
 app.use(express.static('menus'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -67,6 +66,7 @@ app.post('/login', (req,res) => {
 
 });
 
-app.listen(8080, () => {
-    console.log('Server starting at port', 8080);
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log('Server starting at port', PORT);
 });
