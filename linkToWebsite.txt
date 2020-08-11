@@ -1,2 +1,0 @@
-github: https://github.com/MREYES28/assignment2-web322
-heroku: https://assignment2-web322.herokuapp.com/
