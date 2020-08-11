@@ -41,8 +41,8 @@ router.get('/redirectconfirm', (req, res) =>{
     res.render('redirectconfirm');
 });
 
-router.get('/user/userPage', (req, res) =>{
-    res.render('/user/userPage');
+router.get('/userPage', (req, res) =>{
+    res.render('userPage');
 });
 
 router.get('/addMeals', (req, res) =>
