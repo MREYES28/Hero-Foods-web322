@@ -89,7 +89,7 @@ router.put('/update/:id', (req, res) =>
     res.redirect('/update');
 });
 
-router.put("/Cupdate",(req,res)=>{
+router.put("/Mupdate",(req,res)=>{
 
     const meal =
     {
