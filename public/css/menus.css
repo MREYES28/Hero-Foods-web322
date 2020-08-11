@@ -74,6 +74,14 @@ height:15%;
     height:15%;
 }
 
+#meal
+{
+    font-weight: bold;
+    text-align: center;
+    width: 90%;
+    height:15%;
+}
+
 #label1
 {
 padding-right: 66%;
@@ -223,4 +231,44 @@ padding-left: 3%;
 
    }
 
+}
+
+.error1
+{
+    color: red;
+}
+
+.error2
+{
+    color: red;
+}
+
+.error3
+{
+    color: red;
+}
+
+.error4
+{
+    color: red;
+}
+
+.err
+{
+color: red;
+}
+
+.edit-delete-button
+{
+    display:inline-block;
+    text-decoration: none;
+    background-color:#000;
+    color:#fff;
+    padding:5px 10px; 
+}
+
+.succ
+{
+    color:red;
+    font-size: large;
 }

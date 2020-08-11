@@ -25,4 +25,10 @@ router.get('/redirectconfirm', (req, res) =>{
     res.render('redirectconfirm');
 });
 
+router.get('/user/userPage', (req, res) =>{
+    res.render('/user/userPage');
+});
+
+
+
 module.exports = router;

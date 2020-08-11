@@ -1,4 +1,4 @@
-var food = [
+/*var food = [
     {  
     Name: "HERO Burgers",
     description: "Burgers that will turn you into a HERO, delicious bountiful big burgers to get you the nutrients needed to be come a HERO",
@@ -80,3 +80,5 @@ window.onload = function() {
 }
     }
 }
+*/
+

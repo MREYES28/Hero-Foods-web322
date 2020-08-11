@@ -1,3 +1,4 @@
+<h2>Welcome currently logged in as: {{user.username}}</h2>
 
 <div style="background-image: url('images/bannerbackground.jpg');">
 <a name="top"></a>
@@ -5,7 +6,11 @@
 
     <div id= menu>
             <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
+                                    {{#if user.username}}
+            <a href="/logout"> <img src="images/buttonlogout.jpg" id= "menuimg"></a>
+            {{else}}
             <a href="/login"> <img src="images/buttonlogin.jpg" id= "menuimg"></a>
+            {{/if}}
             <a href="/registration"> <img src="images/buttonregister.jpg" id= "menuimg"></a>
             <a href="/MealPkg"> <img src="images/buttonmeal.jpg" id= "menuimg"></a>
         </div>
@@ -15,8 +20,47 @@
 
 
 </br></br></br></br></br></br></br>
-<div class ="row">
+<!--<div class ="row">
 <div id=items></div>
+-->
+ <table border="1" style="text-align: center;">
+        <thead>
+                <th>Meal Package Name</th>
+                <th>Meal Package Price</th>
+                <th>Meal Package Description</th>
+                <th>Meal Package Type</th>
+                <th>Top Package</th>
+        </thead>
+        <tbody>
+            {{#each data}}
+                <tr>
+                   <td>
+                        <a href="" class="meal-title">{{this.mealPackageName}}</a>
+                   </td>
+                   <td>
+                       <span>{{this.mealPackagePrice}}</span>
+                      
+                   </td>
+                   <td>
+                        <span>{{this.mealPackageDesc}}</span>
+                   </td>
+                   <td>
+                       <span>{{this.mealPackageType}}</span>
+                   </td>
+                   <td>
+                     <span>{{this.topPackage}}</span>
+                   </td>
+                </tr>
+
+
+                {{else}}
+                    <td colspan="5">
+                        <p>No meals in the database</p>
+                    </td>
+
+                {{/each}}
+    </tbody>
+    </table>
 </div>
 <footer>
 <a href="#top">Back to top of page</a>

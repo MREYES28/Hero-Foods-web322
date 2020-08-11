@@ -1,72 +1,84 @@
 const express = require('express');
-const app = express();
 const exphbs = require('express-handlebars');
 const path = require("path");
+const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
+const session = require('express-session');
+
+require('dotenv').config({path: "./config/keys.env"});
+
+const app = express();
+
 app.use(express.static('menus'));
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static("public"));
 
-require('dotenv').config({path: "./config/keys.env"});
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+
+
+app.use((req,res,next)=>{
+
+    if(req.query.method=="PUT")
+    {
+        req.method="PUT"
+    }
+
+    else if(req.query.method=="DELETE")
+    {
+        req.method="DELETE"
+    }
+
+    next();
+});
+
+app.use(session({
+    
+    secret: `${process.env.SECRET_KEY}`,
+    resave: false,
+    saveUninitialized: true
+  }));
+  
+app.use((req,res,next)=>{
+
+  
+    res.locals.user = req.session.user;
+
+    next();
+});
+
 
 const indexcontroller = require("./controllers/index");
 const signcontroller = require("./controllers/sign");
 const mealcontroller = require("./controllers/meal");
+const mealPackageController = require("./controllers/MealPkg")
 const logincontroller = require("./controllers/login");
 const redirectconfirm = require("./controllers/redirectconfirm");
+const userPageController = require("./controllers/userPage");
+const addMealsController = require("./controllers/addMeals");
 
 app.use("/", indexcontroller);
 app.use("/meal", mealcontroller);
 app.use("/sign", signcontroller);
 app.use("/login", logincontroller);
 app.use("/redirectconfirm", redirectconfirm);
+app.use("/userPage", userPageController);
+app.use("/addMeals", addMealsController);
+app.use("/MealPkg", mealPackageController);
 
-app.post('/login', (req,res) => {
-    const error1 = [];
-    const error2 = [];
-
-    if(req.body.email == "")
-    {
-        error1.push ("This field is required.");
-    }
-
-    if(req.body.password == "")
-    {
-        error2.push("This field is required.");
-    }
-
-    if(error1.length > 0)
-    {
-        res.render('login' , {
-            title: 'Login',
-            errorMessages: error1
-        });
-        return;
-    }
-
-    else{
-        res.redirect("/");
-    }
-
-    if(error2.length > 0)
-    {
-        res.render('login', {
-            title: 'Login',
-            errorMessages: error2
-        });
-        return;
-    }
-
-    else{
-        res.redirect("/");
-    }
-
-});
+mongoose.connect(process.env.MONGO_DB_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true})
+.then(()=>{
+    console.log(`Connected to MongoDB Database`);
+})
+.catch(err=>console.log(`Error occured when connecting to database ${err}`));
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log('Server starting at port', PORT);
 });
+

@@ -1,3 +1,4 @@
+<h2>Welcome currently logged in as: {{user.username}}</h2>
 
 <div style="background-image: url('images/bannerbackground.jpg');">
 
@@ -5,7 +6,11 @@
 
     <div id= menu>
             <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
+                                    {{#if user.username}}
+            <a href="/logout"> <img src="images/buttonlogout.jpg" id= "menuimg"></a>
+            {{else}}
             <a href="/login"> <img src="images/buttonlogin.jpg" id= "menuimg"></a>
+            {{/if}}
             <a href="/registration"> <img src="images/buttonregister.jpg" id= "menuimg"></a>
             <a href="/MealPkg"> <img src="images/buttonmeal.jpg" id= "menuimg"></a>
         </div>
@@ -17,7 +22,11 @@
             </br> </br>
             <id= "logging"></a>
             <legend>Login:</legend>
-            <form action="/login" method="POST">
+            <form method="POST" action="/login" >
+            {{#each err}}
+    <div class ="err">{{this}}</div>
+{{/each}}
+
             
             <label for="email" id="label1">Email Address:</label></br>
             <input type="text" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/></br></br>
@@ -31,8 +40,9 @@
               <div class="error2">{{this}}</div>
             {{/each}}
                          <a class= "recovery" href="/recover" id="label3">Forgot your password?</a> </br></br>
-            <div  id="loginbuttondiv">
-            <button id="loginbutton">Log IN</button></div>
+              
+               <input type="submit" name="submit" value="LOG IN">
+
             </br></br></br></br></br></br></br>
             </form>
             </legend>

@@ -1,0 +1,30 @@
+{{#if user.username}}
+<h2>Welcome currently logged in as: {{user.username}}</h2>
+
+<div style="background-image: url('images/bannerbackground.jpg');">
+
+<div class= "logo"><h1>HERO FOODS</h1></div>
+</div>
+
+<body>
+            <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
+                                    {{#if user.username}}
+            <a href="/logout"> <img src="images/buttonlogout.jpg" id= "menuimg"></a>
+            {{else}}
+            <a href="/login"> <img src="images/buttonlogin.jpg" id= "menuimg"></a>
+            {{/if}}
+            <a href="/registration"> <img src="images/buttonregister.jpg" id= "menuimg"></a>
+            <a href="/MealPkg"> <img src="images/buttonmeal.jpg" id= "menuimg"></a>
+    <h2>Welcome {{user.username}}</h2>
+<h1>You are currently logged in as {{user.username}}</h1>
+
+<div id= menu>
+
+</footer>
+</div>
+</body>
+
+</body>
+{{else}}
+    <h2>Error you are not logged in!</h2>
+{{/if}}

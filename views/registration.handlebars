@@ -1,3 +1,4 @@
+<h2>Welcome currently logged in as: {{user.username}}</h2>
 
 <div style="background-image: url('images/bannerbackground.jpg');">
 
@@ -5,7 +6,11 @@
 
     <div id= menu>
             <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
+                                    {{#if user.username}}
+            <a href="/logout"> <img src="images/buttonlogout.jpg" id= "menuimg"></a>
+            {{else}}
             <a href="/login"> <img src="images/buttonlogin.jpg" id= "menuimg"></a>
+            {{/if}}
             <a href="/registration"> <img src="images/buttonregister.jpg" id= "menuimg"></a>
             <a href="/MealPkg"> <img src="images/buttonmeal.jpg" id= "menuimg"></a>
         </div>
@@ -18,34 +23,30 @@
             </br>
             </br> </br>
              <id= "logging"></a>
-            <form action="/sign" method="POST">
-            <label for="firstname" id="first">First Name:</label></br>
-            <input type="text"  id="email" name="firstname"/></br></br>
+            <form method="POST" action="/sign">
+            {{#each err}}
+            <div class ="err">{{this}}</div>
+            {{/each}}
+            <label for="username" id="first">User Name:</label></br>
+            <input type="text"  id="username" name="username"/></br></br>
             {{#each  errorMessages}}
               <div class="error1">{{this}}</div>
             {{/each}}
 
-            <label for="lastname" id="second">Last Name:</label></br>
-            <input type="text"  id="email" name="lastname" /></br></br>
-             {{#each  errorMessages}}
-              <div class="error2">{{this}}</div>
-            {{/each}}
-
             <label for="email" id="third">Email Address:</label></br>
-            <input type="text" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" /></br></br>
+            <input type="email" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" /></br></br>
             {{#each  errorMessages}}
-              <div class="error3">{{this}}</div>
+              <div class="error2">{{this}}</div>
             {{/each}}
 
             <label for="password" id="fourth">Password:</label> 
             <input type="password" id="password" name="password" ></br></br>
              {{#each  errorMessages}}
-              <div class="error4">{{this}}</div>
+              <div class="error3">{{this}}</div>
             {{/each}}
 
-           <div  id="loginbuttondiv">
-            <button id="loginbutton">Sign UP</button>
-            </div>
+             <input type="submit" name="submit" value="Register User">
+
              </br> </br> </br> </br> </br>
             </form>
             </legend>

@@ -1,0 +1,37 @@
+router.post('/sign', (req,res)=>
+{
+    const newUser = 
+    {
+        username : req.body.username,
+        email : req.body.email,
+        password : req.body.password
+    }
+
+    const user = new registerModel(newUser);
+    user.save()
+    .then(()=>{
+        console.log(`${user}`);
+
+        res.redirect("redirectconfirm");
+    })
+    .catch(err=>
+        {console.log('Error.')
+        res.redirect("redirectconfirm");
+        })
+});
+
+////////////////
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const registerSchema =  new Schema({
+    username: {type: String, required:true},
+    email: {type: String, required: true, unique:true},
+    password: {type: String, required: true}
+
+});
+
+const registerModel = mongoose.model('register', registerSchema);
+
+module.exports = registerModel;
