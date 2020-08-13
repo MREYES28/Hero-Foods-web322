@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const mealModel = require('../models/mealMaker.js');
 const registerModel = require('../models/register.js');
+const Cart = require('../models/cart');
 const isAuthenticated = require("../middleware/auth");
 const dashBoardLoader = require("../middleware/authorization");
 
@@ -53,6 +54,56 @@ router.get('/addMeals', (req, res) =>
 router.get('/update', (req, res) =>
 {
     res.render('update');
+});
+
+router.get('/shopCart', function(req, res, next)
+{
+    if (!req.session.cart){
+        return res.render('shopCart', {products: null});
+    }
+    var cart = new Cart(req.session.cart);
+    res.render('shopCart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+});
+
+router.get("/cart", (req, res) =>
+{
+    mealModel.find({})
+    .then((meals)=>{
+      const mealShow = meals.map(meal=>{
+          return{
+              id: meal._id,
+              mealPackageName: meal.mealPackageName,
+              mealPackagePrice: meal.mealPackagePrice,
+              mealPackageDesc: meal.mealPackageDesc,
+              mealPackageType: meal.mealPackageType,
+              topPackage: meal.topPackage
+          }
+      });
+
+      res.render("cart", {
+          
+          data : mealShow
+      });
+  })
+  .catch(err=>console.log(`Error when pulling from the database :${err}`));
+});
+
+router.get('/addCart/:id', (req,res) =>{
+    var prodID = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+    mealModel.findById(prodID, function(err, product)
+    {
+        if (err){
+            console.log(`error ${err}`)
+            res.redirect('/');
+        }
+        cart.add(product, product.id);
+        req.session.cart = cart;
+        console.log(req.session.cart);
+        res.redirect('/cart');
+        
+    });
 });
 
 router.get("/editMeals", (req, res) =>

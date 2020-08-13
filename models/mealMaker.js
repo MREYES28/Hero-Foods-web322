@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const mealSchema =  new Schema({
     mealPackageName: {type: String, required:true},
-    mealPackagePrice: {type: String},
+    mealPackagePrice: {type: Number},
     mealPackageDesc: {type: String},
     mealPackageType: {type:String},
     topPackage: {type: String}

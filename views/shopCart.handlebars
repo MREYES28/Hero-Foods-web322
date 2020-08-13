@@ -1,9 +1,9 @@
-{{#if user.username}}
+
+<h2>Welcome currently logged in as: {{user.username}}</h2>
 <div class="mobile">
 <div style="background-image: url('images/bannerbackground.jpg');">
-
+<a name="top"></a>
 <div class= "logo"><h1>HERO FOODS</h1></div>
-</div>
  <div id= menu>
                 <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
                                     {{#if user.username}}
@@ -21,21 +21,28 @@
         </div>
         </div>
 <body>
-    <h2>Welcome ADMIN {{user.username}}</h2>
-<h1>ADMIN ACCOUNT: {{user.username}}</h1>
+{{#if products}}
 
-                       {{#each succ}}
-                       <div class="succ">{{this}}</div>
-                       {{/each}}
-<a href= "/addMeals">Click here if you would like to <b>ADD</b> meals!</a>
-<br>
-<a href= "/editMeals">Click here if you would like to <b>EDIT</b> meals!</a>
-</footer>
+<div id="box">
+
+            {{#each products}}
+            <ul border="1">
+
+                      <li>{{this.item.mealPackageName}}</li>  
+
+                     <li>{{this.qty}}</li> 
+
+                     <li>${{this.mealPackagePrice}}</li>  
+
+
+            </ul>
 </div>
-</body>
 
-</body>
+{{/each}}
+    <strong>Total Amount: ${{totalPrice}}</strong>
 {{else}}
-    <h2>Error you are not logged in!</h2>
+<h1>Shopping Cart is empty!!!</h1>
 {{/if}}
+
 </div>
+

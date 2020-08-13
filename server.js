@@ -4,6 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const session = require('express-session');
+const cart = require('connect-mongo')(session);
 
 require('dotenv').config({path: "./config/keys.env"});
 
@@ -41,13 +42,16 @@ app.use(session({
     
     secret: `${process.env.SECRET_KEY}`,
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new cart({mongooseConnection: mongoose.connection}),
+    cookie: {maxAge: 180 * 60 * 1000}
   }));
   
 app.use((req,res,next)=>{
 
   
     res.locals.user = req.session.user;
+    res.locals.session = req.session;
 
     next();
 });

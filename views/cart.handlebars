@@ -5,8 +5,9 @@
 <div style="background-image: url('images/bannerbackground.jpg');">
 <a name="top"></a>
 <div class= "logo"><h1>HERO FOODS</h1></div>
- <div id= menu>
-                <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
+
+    <div id= menu>
+        <a href= "/"><img src="images/buttonmenu.jpg" id= "menuimg"></a>
                                     {{#if user.username}}
             <a href="/logout"> <img src="images/buttonlogout.jpg" id= "menuimg"></a>
               <a href="/cart"><img src="images/add-cart-button.png" id="menuimg"></a>
@@ -21,14 +22,14 @@
             <a href="/shopCart"><img src="images/shopping-cart-button.png" id="menuimg"></a>
         </div>
         </div>
-        </div>
-        </div>
           </br>
 <body>
 
 
 </br></br></br></br></br></br></br>
-
+<!--<div class ="row">
+<div id=items></div>
+-->
  <table border="1" style="text-align: center;">
         <thead>
                 <th>Meal Package Name</th>
@@ -58,7 +59,7 @@
                    </td>
                 </tr>
                     <td>
-                        <a href="/update/{{this.id}}?method=PUT" class="edit-delete-button">Edit</a>
+                        <a href="/addCart/{{this.id}}" class="edit-delete-button">Add to Cart</a>
                    </td> 
 
                 {{else}}
